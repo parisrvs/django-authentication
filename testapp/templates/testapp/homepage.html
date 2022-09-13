@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                margin: 50px;
+            }
+            #div1 > a {
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <div id="div1">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'authentication:account' %}">Account</a>
+            <a href="{% url 'authentication:logout' %}">Logout</a>
+            {% else %}
+            <a href="{% url 'authentication:login' %}">Login</a>
+            <a href="{% url 'authentication:account' %}">Account</a>
+            {% endif %}
+        </div>
+    </body>
+</html>
